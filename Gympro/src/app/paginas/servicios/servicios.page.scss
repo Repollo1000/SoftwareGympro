@@ -1,0 +1,70 @@
+
+.info{
+
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+img{
+
+    background-color: rgb(161, 160, 160);
+    border-radius: 200px;
+    padding: 10px;
+
+}
+div p{
+    background-color: #b9b4b4;
+    border-radius: 200px;
+    padding: 10px;
+    text-align: center;
+    margin-right: 20px;;
+}
+
+ion-list{
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+    
+ion-item {
+    text-align: center;
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgb(0, 0, 0);
+    padding: 0.2px;
+    
+
+}
+ion-label{
+
+    padding: 10px;
+}
+.reserva{
+
+    text-align: center;
+    
+
+}
+.reserva ion-button{
+    margin-top: 80px;
+    --background: #87C4D5;
+    
+
+}
+ion-button{
+   
+    color: black;
+
+}
+.servicio {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    --background: transparent;
+    border-bottom: 1px solid ;
+  }
+

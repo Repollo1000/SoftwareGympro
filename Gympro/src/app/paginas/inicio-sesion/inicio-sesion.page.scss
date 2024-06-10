@@ -1,0 +1,43 @@
+ion-content {
+    text-align: center;
+}
+img {
+    margin-top: 45px;
+    border-radius: 20px;
+}
+h1 {
+    margin-top: 20px;
+}
+.formulario {
+    margin-top: 60px;
+}
+div p {
+    margin-bottom: 5px; 
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 55px;
+}
+.rounded-input {
+    --border-radius: 20px; 
+}
+ion-input {
+    --background: #87C4D5;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: aliceblue;
+    margin-top: 5px;
+}
+.botones {
+    margin-top: 40px;
+}
+#boton2 {
+    --background: transparent;
+    border-radius: 20px;
+}
+ion-button {
+    border-radius: 20px;
+    --background: #87C4D5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
+}

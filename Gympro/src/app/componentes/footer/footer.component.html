@@ -1,0 +1,20 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button [routerLink]="['/inicio']" tab="home" [ngClass]="{'custom-color-inicio': currentRoute === '/inicio'}">
+      <img src="assets/casa.png" alt="Descripción de la imagen">
+    </ion-tab-button>
+
+    <ion-tab-button [routerLink]="['/servicios']" tab="search" [ngClass]="{'custom-color-servicios': currentRoute === '/servicios'}">
+      <img src="assets/pesa.png" alt="Descripción de la imagen">
+    </ion-tab-button>
+
+    <ion-tab-button [routerLink]="['/ajustes']" tab="settings" [ngClass]="{'custom-color-ajustes': currentRoute === '/ajustes'}">
+      <img src="assets/grafico.png" alt="Descripción de la imagen">
+    </ion-tab-button>
+
+    <ion-tab-button [routerLink]="['/ajustes']" tab="settings" [ngClass]="{'custom-color-ajustes': currentRoute === '/ajustes'}">
+      <img src="assets/personita.png" alt="Descripción de la imagen">
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

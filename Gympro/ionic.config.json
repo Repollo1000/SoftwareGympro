@@ -1,5 +1,7 @@
 {
-  "name": "ionic-app-base",
-  "integrations": {},
+  "name": "Gympro",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

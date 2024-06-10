@@ -1,0 +1,63 @@
+<ion-header [translucent]="true"></ion-header>
+
+<ion-content [fullscreen]="true">
+    <img src="assets\logoColor.png" alt="">
+    <h1>Crear Cuenta</h1>
+
+
+
+    <div class="formulario">
+
+
+
+      <div class="input">
+        <p>Ingresa tu nombre y apellido</p>
+        <ion-item class="rounded-input">
+            <ion-input
+                labelPlacement="stacked"
+                placeholder="Ej: Sebastian Soza">
+            </ion-input>
+        </ion-item>
+      </div>
+     
+
+      <div class="input">
+        <p>Ingresa tu correo electrónico</p>
+        <ion-item class="rounded-input">
+            <ion-input
+                labelPlacement="stacked"
+                placeholder="Ej: pablofigueroa@gmail.com">
+            </ion-input>
+        </ion-item>
+      </div>
+
+
+      <div class="input">
+        <p>Ingresa tu contraseña</p>
+        <ion-item class="rounded-input">
+            <ion-input
+                labelPlacement="stacked"
+                placeholder="Ej: Figueroa808">
+            </ion-input>
+        </ion-item>
+      </div>
+
+      <div class="input">
+        <p>ReIngresa tu contraseña</p>
+        <ion-item class="rounded-input">
+            <ion-input
+                labelPlacement="stacked"
+                placeholder="Ej: Figueroa808">
+            </ion-input>
+        </ion-item>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="botones">
+        <ion-button [routerLink]="'/inicio-sesion'" id="boton2">Ya tengo cuenta</ion-button>
+    </div>
+</ion-content>
