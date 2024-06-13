@@ -39,21 +39,23 @@ ion-item {
     
 
 }
-ion-label{
+ion-card-content{
 
     padding: 10px;
 }
 .reserva{
-
+    margin-top: 50px;
     text-align: center;
-    
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
 
 }
 .reserva ion-button{
-    margin-top: 80px;
     --background: #87C4D5;
-    
 
+    
 }
 ion-button{
    
@@ -65,6 +67,14 @@ ion-button{
     margin: 0;
     padding: 0;
     --background: transparent;
-    border-bottom: 1px solid ;
-  }
+    
+    background-color: #FC9346;
+}
 
+.botones{
+    margin-left: 26px;
+    margin-right: 26px;
+    border-radius: 15px;
+    background-color: #FC9346;
+
+}
