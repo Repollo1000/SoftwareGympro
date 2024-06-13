@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'maquinas',
     loadChildren: () => import('./paginas/maquinas/maquinas.module').then( m => m.MaquinasPageModule)
   },
+  {
+    path: 'corporal',
+    loadChildren: () => import('./paginas/corporal/corporal.module').then( m => m.CorporalPageModule)
+  },
 
 
 ];
