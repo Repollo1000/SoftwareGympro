@@ -14,4 +14,6 @@ import { RouterModule } from '@angular/router';
   exports: [FooterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] // Añadir el esquema aquí
 })
+
+
 export class SharedModule { }
