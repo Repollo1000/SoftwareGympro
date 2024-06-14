@@ -1,0 +1,41 @@
+<ion-content class="ion-padding">
+  <div class="main-container">
+   
+    <div class="corner-image-container">
+      <ion-img src="assets/SS.png" alt=""></ion-img>
+    </div>
+
+    
+    <div class="titles-container">
+      <h1 class="left-aligned">Servicios</h1>
+      <h2 class="left-aligned">Reservas</h2>
+    </div>
+
+   
+    <div class="transparent-border">
+      <p>Revisa los ejercicios disponibles e ingresa el ID del servicio que deseas reservar</p>
+    </div>
+
+    <!-- No necesitas el cierre de ion-text aquí -->
+    <p class="left-aligned">Ingresa el ID del servicio</p>
+
+    
+    <ion-item>
+      <ion-label position="stacked">Ejemplo: 122</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+   
+    <ion-button expand="block" class="centered" id="confirmar">Confirmar</ion-button>
+
+    
+    <div class="centered">
+      <ion-img src="assets/ejercicio.jpg" alt="Foto de ejemplo"></ion-img>
+    </div>
+
+    <div class="volver">
+      <ion-button [routerLink]="'/reserva'">Realizar Reserva</ion-button>
+      <ion-button [routerLink]="'/servicios'">Volver</ion-button>
+    </div>
+  </div>
+</ion-content>

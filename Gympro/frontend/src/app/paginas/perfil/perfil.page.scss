@@ -1,0 +1,70 @@
+ion-header {
+    text-align: center; /* Alinea el contenido del encabezado al centro */
+  }
+  
+  ion-content {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos dentro de ion-content se apilen verticalmente */
+    justify-content: center; /* Centra verticalmente los elementos dentro de ion-content */
+    align-items: center; /* Centra horizontalmente los elementos dentro de ion-content */
+    height: 100%; /* Ajusta el contenido de ion-content al 100% del viewport height */
+  }
+  
+  .ImagenPerfil {
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+    color: blue;
+  }
+  
+  .ImagenPerfil img {
+    width: 100px; /* Tamaño de la imagen ajustado según sea necesario */
+    height: 100px; /* Tamaño de la imagen ajustado según sea necesario */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    object-fit: cover; /* Ajusta el tamaño de la imagen manteniendo su relación de aspecto */
+    margin-bottom: 10px; /* Espacio inferior para separar la imagen del título */
+  }
+  
+  .DatosPerfil {
+    background-color: #f0f0f0; /* Fondo gris clarito */
+    border: 1px solid #666;
+    padding: 20px;
+    margin: 20px auto; /* Centra horizontalmente el recuadro de datos */
+    max-width: 80%;
+  }
+  
+  .linea {
+    height: 1px;
+    background-color: #888; /* Color de las líneas divisorias gris oscuro */
+    margin: 10px 0; /* Espacio vertical entre las líneas */
+  }
+  
+  .contenido {
+    text-align: center; /* Centra el contenido horizontalmente */
+  }
+  .botones ion-button{
+    --background: transparent;
+    background-color: rgb(214, 222, 227);
+    color:black;
+    text-align: center;
+    border-radius:15px;
+    display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top:15px;
+  }
+  .volver{
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
+
+}
+.volver ion-button{
+    --background: #87C4D5;
+
+    
+}
+  
+  

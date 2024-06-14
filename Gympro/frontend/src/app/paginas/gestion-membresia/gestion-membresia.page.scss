@@ -1,0 +1,43 @@
+ion-header {
+    text-align: center; 
+}
+  .linea {
+    height: 1px;
+    background-color: #888; 
+    margin: 10px 0; 
+  }
+  
+  .contenido {
+    margin-top: 40px;
+    text-align: center; 
+    font-weight: bold; 
+    margin-bottom: 40px;   
+  }
+  .imagen {
+    margin-top: 40px; 
+  }
+  .boton {
+    margin-top: 40px ; 
+  }
+  
+  .custom-button {
+    --background: #f0f0f0; 
+    --color: #000; 
+    --border-color: #666; 
+    font-weight: bold; 
+  }
+  .volver{
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
+
+}
+.volver ion-button{
+    --background: #87C4D5;
+
+    
+}
+  

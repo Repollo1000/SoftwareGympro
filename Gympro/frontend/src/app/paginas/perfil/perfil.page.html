@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ImagenPerfil">
+    <img src="assets/fotoperfil.jpg" alt="">
+    <h2>Editar foto de perfil</h2>
+  </div>
+
+  <div class="DatosPerfil">
+    <div class="linea"></div>
+    <div class="contenido">
+      <p>Nombre: Sebastian Soza</p>
+    </div>
+    <div class="linea"></div>
+    <div class="contenido">
+      <p>Email: &#64;sebaasoza</p>
+    </div>
+    <div class="linea"></div>
+    <div class="contenido">
+      <p>Contraseña: XXXX</p>
+    </div>
+  </div>
+  <div class="botones">
+    <ion-button [routerLink]="'/gestion-membresia'">Gestionar Membresia</ion-button>
+    <ion-button [routerLink]="'/entrenamiento'">Entrenamientos Personalizados</ion-button>
+  </div>
+  <div class="volver">
+
+    <ion-button [routerLink]="'/servicios'">Volver</ion-button>
+  </div>
+ 
+  
+</ion-content>

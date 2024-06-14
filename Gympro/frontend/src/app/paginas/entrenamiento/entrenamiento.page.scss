@@ -1,0 +1,79 @@
+.info{
+
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+img{
+    margin-top: 50px;
+    background-color: rgb(161, 160, 160);
+    border-radius: 200px;
+    padding: 10px;
+
+}
+div p{
+    background-color: #b9b4b4;
+    border-radius: 200px;
+    padding: 10px;
+    text-align: center;
+    margin-right: 20px;;
+}
+
+ion-list{
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+    
+ion-item {
+    text-align: center;
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgb(0, 0, 0);
+    padding: 0.2px;
+    
+
+}
+ion-card-content{
+
+    padding: 10px;
+}
+.volver{
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
+
+}
+.volver ion-button{
+    --background: #87C4D5;
+
+    
+}
+ion-button{
+   
+    color: black;
+
+}
+.ejercicio {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    --background: transparent;
+    
+    background-color:#0ed977;
+}
+
+.botones{
+    margin-left: 26px;
+    margin-right: 26px;
+    border-radius: 15px;
+    background-color: #0ed977;
+
+}

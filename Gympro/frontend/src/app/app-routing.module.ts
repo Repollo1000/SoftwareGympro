@@ -43,6 +43,22 @@ const routes: Routes = [
     path: 'corporal',
     loadChildren: () => import('./paginas/corporal/corporal.module').then( m => m.CorporalPageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./paginas/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'reserva',
+    loadChildren: () => import('./paginas/reserva/reserva.module').then( m => m.ReservaPageModule)
+  },
+  {
+    path: 'entrenamiento',
+    loadChildren: () => import('./paginas/entrenamiento/entrenamiento.module').then( m => m.EntrenamientoPageModule)
+  },
+  {
+    path: 'gestion-membresia',
+    loadChildren: () => import('./paginas/gestion-membresia/gestion-membresia.module').then( m => m.GestionMembresiaPageModule)
+  },
 
 
 ];
