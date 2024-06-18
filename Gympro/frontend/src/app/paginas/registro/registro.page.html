@@ -10,6 +10,9 @@
         <ion-item class="rounded-input">
             <ion-input formControlName="nombre" placeholder="Ej: Sebastian Soza"></ion-input>
         </ion-item>
+        <div class="validators" *ngIf="registroForm.controls['nombre'].errors && registroForm.controls['nombre'].touched">
+          <div *ngIf="registroForm.controls['nombre'].errors['required']">El nombre es requerido</div>
+        </div>
       </div>
 
       <div class="input">
@@ -48,4 +51,8 @@
         <ion-button type="submit" [disabled]="registroForm.invalid" id="boton2">Registrar</ion-button>
       </div>
     </form>
+    <div class="volver">
+
+      <ion-button [routerLink]="'/gympro'">Volver</ion-button>
+    </div>
 </ion-content>

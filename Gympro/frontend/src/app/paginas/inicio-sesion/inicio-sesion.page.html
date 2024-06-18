@@ -1,39 +1,34 @@
 <ion-header [translucent]="true"></ion-header>
 
 <ion-content [fullscreen]="true">
-    <img src="assets\logoColor.png" alt="">
+    <img src="assets/logoColor.png" alt="">
     <h1>Inicio Sesión</h1>
 
-
-    <div class="formulario">
-
-
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formulario">
       <div class="input">
-        <p>Ingresa tu nombre y apellido</p>
+        <p>Ingresa tu correo electrónico</p>
         <ion-item class="rounded-input">
-            <ion-input
-                labelPlacement="stacked"
-                placeholder="Ej: Sebastian Soza">
-            </ion-input>
+            <ion-input formControlName="email" placeholder="Ej: pablofigueroa@gmail.com"></ion-input>
         </ion-item>
+        <div class="validators" *ngIf="loginForm.controls['email'].errors && loginForm.controls['email'].touched">
+          <div *ngIf="loginForm.controls['email'].errors['required']">El correo es requerido</div>
+          <div *ngIf="loginForm.controls['email'].errors['email']">Ingrese un correo válido</div>
+        </div>
       </div>
-     
 
       <div class="input">
         <p>Ingresa tu contraseña</p>
         <ion-item class="rounded-input">
-            <ion-input
-                labelPlacement="stacked"
-                placeholder="Ej: Figueroa808">
-            </ion-input>
+            <ion-input formControlName="password" type="password" placeholder="Ej: Figueroa808"></ion-input>
         </ion-item>
+        <div class="validators" *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].touched">
+          <div *ngIf="loginForm.controls['password'].errors['required']">La contraseña es requerida</div>
+          <div *ngIf="loginForm.controls['password'].errors['minlength']">La contraseña debe tener al menos 8 caracteres</div>
+        </div>
       </div>
 
-    </div>
-
-
-
-    <div class="botones">
-        <ion-button id="boton2" [routerLink]="'/inicio'">Iniciar Sesión</ion-button>
-    </div>
+      <div class="botones">
+        <ion-button type="submit" [disabled]="loginForm.invalid" id="boton2">Iniciar Sesión</ion-button>
+      </div>
+    </form>
 </ion-content>
