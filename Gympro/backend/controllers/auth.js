@@ -2,6 +2,29 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const db = require('../util/database');
+
+// Controlador para obtener entrenamientos para clientes (solo lectura)
+exports.getEntrenamientosCliente = async (req, res, next) => {
+  try {
+    const [rows] = await db.execute('SELECT tipo, descripcion FROM training');
+    res.json(rows);
+  } catch (error) {
+    console.error('Error al obtener los entrenamientos para clientes:', error);
+    res.status(500).json({ error: 'Error al obtener los entrenamientos para clientes' });
+  }
+};
+
+// Controlador para obtener entrenamientos editables para profesionales (lectura y escritura)
+exports.getEntrenamientosProfesional = async (req, res, next) => {
+  try {
+    const [rows] = await db.execute('SELECT tipo, descripcion FROM training WHERE profesional_id = ?', [req.userId]);
+    res.json(rows);
+  } catch (error) {
+    console.error('Error al obtener los entrenamientos editables para profesionales:', error);
+    res.status(500).json({ error: 'Error al obtener los entrenamientos editables para profesionales' });
+  }
+};
 
 // Controlador de registro (signup)
 exports.signup = async (req, res, next) => {

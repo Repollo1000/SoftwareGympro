@@ -1,19 +1,19 @@
-// entrenamientos.page.ts
+// entrenamientos.component.ts
 import { Component, OnInit } from '@angular/core';
 import { EntrenamientosService } from '../../services/entrenamientos.service';
 
 @Component({
   selector: 'app-entrenamientos',
-  templateUrl: './entrenamiento.page.html',
-  styleUrls: ['./entrenamiento.page.scss'],
+  templateUrl: './entrenamientos.component.html',
+  styleUrls: ['./entrenamientos.component.css']
 })
-export class EntrenamientoPage implements OnInit {
+export class EntrenamientosComponent implements OnInit {
 
   entrenamientos: any[] = []; // Variable para almacenar los entrenamientos
 
   constructor(private entrenamientosService: EntrenamientosService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Llama al método correspondiente del servicio para obtener los entrenamientos
     this.entrenamientosService.getEntrenamientosCliente().subscribe(
       (data: any[]) => {
@@ -26,9 +26,3 @@ export class EntrenamientoPage implements OnInit {
   }
 
 }
-
-
-
-
-
-
