@@ -16,6 +16,6 @@ export class PerfilPage implements OnInit {
 
   logout() {
     this.authService.logout(); // Perform the logout operation
-    this.router.navigate(['/inicio-sesion']); // Redirect to the login page
+    this.router.navigate(['/gympro']); // Redirect to the login page
   }
 }
