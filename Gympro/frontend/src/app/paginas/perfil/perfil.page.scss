@@ -61,10 +61,28 @@ ion-header {
     margin-right: 50px;
 
 }
-.volver ion-button{
+.volver ion-button {
     --background: #87C4D5;
 
     
+}
+.cerrar-sesion{
+
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-right: 50px;
+ 
+ 
+
+}
+.cerrar-sesion ion-button{
+
+
+  --background: #ec3131;
+
 }
   
   

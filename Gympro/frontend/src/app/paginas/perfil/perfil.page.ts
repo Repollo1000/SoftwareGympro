@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service'; // Adjust the path as needed
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
+  logout() {
+    this.authService.logout(); // Perform the logout operation
+    this.router.navigate(['/inicio-sesion']); // Redirect to the login page
+  }
 }

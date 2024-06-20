@@ -1,4 +1,4 @@
-// entrenamientos.page.ts
+// entrenamiento.page.ts
 import { Component, OnInit } from '@angular/core';
 import { EntrenamientosService } from '../../services/entrenamientos.service';
 
@@ -14,21 +14,27 @@ export class EntrenamientoPage implements OnInit {
   constructor(private entrenamientosService: EntrenamientosService) { }
 
   ngOnInit() {
-    // Llama al método correspondiente del servicio para obtener los entrenamientos
+    this.obtenerEntrenamientos(); // Llama al método para obtener los entrenamientos al inicializar el componente
+  }
+
+  obtenerEntrenamientos() {
     this.entrenamientosService.getEntrenamientosCliente().subscribe(
       (data: any[]) => {
-        this.entrenamientos = data; // Asigna los datos obtenidos a la variable local
+        console.log('Entrenamientos recibidos:', data);
+        // Aquí puedes transformar los datos si es necesario
+        this.entrenamientos = data.map(entrenamiento => ({
+          tipo: entrenamiento.tipo,
+          descripcion: entrenamiento.descripcion
+        }));
       },
-      (      error: any) => {
+      (error: any) => {
         console.error('Error al obtener los entrenamientos:', error);
       }
     );
   }
 
+  imprimirEntrenamientos() {
+    console.log('Entrenamientos actuales:', this.entrenamientos);
+  }
+
 }
-
-
-
-
-
-

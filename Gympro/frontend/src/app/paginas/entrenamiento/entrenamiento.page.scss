@@ -1,79 +1,64 @@
-.info{
-
+.info {
     margin-top: 20px;
     margin-left: 20px;
-
-}
-img{
+  }
+  
+  img {
     margin-top: 50px;
     background-color: rgb(161, 160, 160);
     border-radius: 200px;
     padding: 10px;
-
-}
-div p{
-    background-color: #b9b4b4;
-    border-radius: 200px;
+  }
+  
+  ion-card-content {
     padding: 10px;
-    text-align: center;
-    margin-right: 20px;;
-}
-
-ion-list{
-    border-radius: 25px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    margin-left: 10px;
-    margin-right: 10px;
-}
-    
-ion-item {
-    text-align: center;
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24px;
-    color: rgb(0, 0, 0);
-    padding: 0.2px;
-    
-
-}
-ion-card-content{
-
-    padding: 10px;
-}
-.volver{
+  }
+  
+  .volver {
     margin-top: 50px;
     text-align: center;
     display: flex;
     flex-direction: column;
     margin-left: 50px;
     margin-right: 50px;
-
-}
-.volver ion-button{
+  }
+  
+  .volver ion-button {
     --background: #87C4D5;
-
-    
-}
-ion-button{
-   
+  }
+  
+  ion-button {
     color: black;
-
-}
-.ejercicio {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    --background: transparent;
-    
-    background-color:#0ed977;
-}
-
-.botones{
+  }
+  
+  .botones {
     margin-left: 26px;
     margin-right: 26px;
     border-radius: 15px;
-    background-color: #0ed977;
-
-}
+    background-color: #59EA57;
+  }
+  
+  .tabla-entrenamientos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2px;
+  }
+  
+  .tabla-entrenamientos th, .tabla-entrenamientos td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .tabla-entrenamientos th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .tipo {
+    border-radius: 26px 0 0 26px;
+  }
+  
+  .descripcion {
+    border-radius: 0 26px 26px 0;
+  }
+  

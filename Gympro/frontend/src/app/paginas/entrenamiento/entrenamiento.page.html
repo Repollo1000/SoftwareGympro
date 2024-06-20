@@ -1,21 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Entrenamientos Personalizados</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
   <div class="info">
     <img src="assets/SS.png" alt="">
     <h1>Entrenamientos Personalizados</h1>
     <p>Revisa tus entrenamientos personalizados y ¡Comienza a ejercitarte!</p>
-    <h2>Rutina de Piernas</h2>
+    <h2>Rutina de Personalizada</h2>
   </div>
-
+  
   <div class="botones">
     <ion-card-content>
-      <!-- Aquí se mostrarán los botones de los entrenamientos -->
-      <ion-button class="ejercicio" *ngFor="let entrenamiento of entrenamientos">{{ entrenamiento.ejercicio }}</ion-button>
+      <table class="tabla-entrenamientos">
+        <thead>
+          <tr>
+            <th class="tipo">Tipo</th>
+            <th class="descripcion">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entrenamiento of entrenamientos">
+            <td>{{ entrenamiento.tipo }}</td>
+            <td>{{ entrenamiento.descripcion }}</td>
+          </tr>
+        </tbody>
+      </table>
     </ion-card-content>
   </div>
 
