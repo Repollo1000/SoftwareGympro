@@ -1,9 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
-const entrenamientosRoutes = require('./routes/entrenamientos');
 const errorController = require('./controllers/error');
-const clasesRoutes = require('./routes/clases'); // Importa las rutas de clases
+
+const entrenamientosRoutes = require('./routes/entrenamientos');
+const clasesRoutes = require('./routes/clases');
+const maquinasRoutes = require('./routes/maquinas');
+const corporalRoutes = require('./routes/evaluacionCorporal');
+
+
+
+
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -26,7 +33,8 @@ app.use((req, res, next) => {
 app.use('/auth', authRoutes);
 app.use('/api', clasesRoutes); // Route for clases
 app.use('/api', entrenamientosRoutes); // Route for entrenamientos
-
+app.use('/api', maquinasRoutes); 
+app.use('/api', corporalRoutes); 
 // Error Handling
 app.use(errorController.get404);
 app.use(errorController.get500);

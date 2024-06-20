@@ -15,12 +15,26 @@
 
    <div class="botones">
     <ion-card-content>
-          <ion-button class="servicio" >Evalu.Cor 15/05 17:00  122</ion-button>
-      
-        
-          
-          <ion-button class="servicio">Evalu.Cor 12/05 10:00 128</ion-button>
-
+      <table class="tabla-clases">
+        <thead>
+          <tr>
+            <th class="fecha">Fecha</th>
+            <th class="hora">Hora</th>
+            <th class="tipo">IMC</th>
+            <th class="descripcion" >Descripción</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let eval of corporal">
+            <td>{{ eval.fecha | date }}</td>
+            <td>{{ eval.hora }}</td>
+            <td>{{ eval.imc }}</td>
+            <td>{{ eval.observaciones }}</td>
+          </tr>
+        </tbody>
+      </table>
     </ion-card-content>
 
    </div>

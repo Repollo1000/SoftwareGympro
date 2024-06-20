@@ -1,42 +1,39 @@
-
-
 <ion-content [fullscreen]="true">
-
   <div class="info">
-
-    <img src="assets\SS.png" alt="">
+    <img src="assets/SS.png" alt="">
     <h1>Servicios</h1>
-
     <h2>Sala de Máquinas</h2>
-    
     <p>Revisa los horarios actualizados y reserva tu hora</p>
-
   </div>
 
-   <div class="botones">
+  <div class="botones">
     <ion-card-content>
-          <ion-button class="servicio" >Sala.M 15/05 17:00  122</ion-button>
-      
-        
-          
-          <ion-button class="servicio">Sala.M 12/05 10:00 128</ion-button>
-
+      <table class="tabla-clases">
+        <thead>
+          <tr>
+            <th class="tipo">Sala</th>
+            <th class="descripcion">Descripción</th>
+            <th class="fecha">Fecha</th>
+            <th class="hora">Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let maquina of maquinas">
+            <td>{{ maquina.sala }}</td>
+            <td>{{ maquina.descripcion }}</td>
+            <td>{{ maquina.fecha | date }}</td>
+            <td>{{ maquina.hora }}</td>
+          </tr>
+        </tbody>
+      </table>
     </ion-card-content>
+  </div>
 
-   </div>
-
-    
-<div class="reserva">
-
-  <ion-button>Realizar reserva</ion-button>
-
-
-  <ion-button [routerLink]="'/servicios'">Volver</ion-button>
-</div>
-
-
-
-
+  <div class="reserva">
+    <ion-button>Realizar reserva</ion-button>
+  </div>
+  
+  <div class="volver">
+    <ion-button [routerLink]="'/servicios'">Volver</ion-button>
+  </div>
 </ion-content>
-
-
