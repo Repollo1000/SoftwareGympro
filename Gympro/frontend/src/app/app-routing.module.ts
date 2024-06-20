@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: 'gympro',
     loadChildren: () => import('./paginas/gympro/gympro.module').then(m => m.GymproPageModule),
-    canActivate: [AuthGuard]
+    
   },
   {
     path: '',

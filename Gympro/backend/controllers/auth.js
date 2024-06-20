@@ -2,12 +2,19 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const db = require('../util/database');
+const db = require('../util/database'); // Importa desde database.js
 
+// Controlador para obtener entrenamientos para clientes (solo lectura)
 // Controlador para obtener entrenamientos para clientes (solo lectura)
 exports.getEntrenamientosCliente = async (req, res, next) => {
   try {
-    const [rows] = await db.execute('SELECT tipo, descripcion FROM training');
+    const userId = req.userId; // Obtener userId del token JWT
+    console.log(`UserId from token: ${userId}`); // <-- Agrega este punto de verificación
+    if (!userId) {
+      return res.status(401).json({ error: 'Usuario no autenticado' });
+    }
+    
+    const [rows] = await db.execute('SELECT tipo, descripcion FROM training WHERE profesional_id = ?', [userId]);
     res.json(rows);
   } catch (error) {
     console.error('Error al obtener los entrenamientos para clientes:', error);
@@ -15,16 +22,7 @@ exports.getEntrenamientosCliente = async (req, res, next) => {
   }
 };
 
-// Controlador para obtener entrenamientos editables para profesionales (lectura y escritura)
-exports.getEntrenamientosProfesional = async (req, res, next) => {
-  try {
-    const [rows] = await db.execute('SELECT tipo, descripcion FROM training WHERE profesional_id = ?', [req.userId]);
-    res.json(rows);
-  } catch (error) {
-    console.error('Error al obtener los entrenamientos editables para profesionales:', error);
-    res.status(500).json({ error: 'Error al obtener los entrenamientos editables para profesionales' });
-  }
-};
+
 
 // Controlador de registro (signup)
 exports.signup = async (req, res, next) => {
@@ -51,6 +49,7 @@ exports.signup = async (req, res, next) => {
 exports.login = async (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
+
   try {
     const user = await User.find(email);
     if (user[0].length !== 1) {
@@ -75,9 +74,21 @@ exports.login = async (req, res, next) => {
       'secretfortoken',
       { expiresIn: '1h' }
     );
+
     res.status(200).json({ token, userId: storedUser.id });
   } catch (err) {
     if (!err.statusCode) err.statusCode = 500;
     next(err);
+  }
+};
+
+// Controlador para obtener clases
+exports.getClases = async (req, res) => {
+  try {
+    const [rows] = await db.execute('SELECT * FROM clases');
+    res.status(200).json(rows);
+  } catch (error) {
+    console.error('Error executing query:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 };

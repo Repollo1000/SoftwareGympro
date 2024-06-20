@@ -8,11 +8,12 @@ import { IonicModule } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserService } from './services/user.service';
+// Importa EntrenamientoPage solo en su módulo específico, no aquí
 
 @NgModule({
   declarations: [
     AppComponent
-    // No declares InicioSesionPage aquí
+    // No declares EntrenamientoPage aquí si ya está declarado en otro módulo
   ],
   imports: [
     BrowserModule,

@@ -12,13 +12,13 @@ img{
     padding: 10px;
 
 }
-div p{
+.info p{
     background-color: #b9b4b4;
     border-radius: 200px;
     padding: 10px;
     text-align: center;
     margin-right: 20px;;
-}
+  }
 
 ion-list{
     border-radius: 25px;
@@ -57,24 +57,56 @@ ion-card-content{
 
     
 }
-ion-button{
-   
+ion-button {
     color: black;
-
-}
-.servicio {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    --background: transparent;
-    
-    background-color: #FC9346;
-}
-
-.botones{
+  }
+  
+  .botones {
     margin-left: 26px;
     margin-right: 26px;
     border-radius: 15px;
     background-color: #FC9346;
-
-}
+  }
+  
+  .tabla-clases {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2px;
+  }
+  
+  .tabla-clases th, .tabla-clases td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .tabla-clases th {
+    background-color: #FC9346;
+    color: white;
+  }
+.volver {
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+.volver ion-button {
+    --background: #87C4D5;
+    
+  }
+  .tipo {
+    border-radius: 26px 0 0 26px;
+  }
+  
+  .descripcion {
+    border-radius: 0 26px 26px 0;
+  }
+  .fecha {
+    border-radius: 0 26px 26px 0;
+  }
+  .hora {
+    border-radius: 0 26px 26px 0;
+  }
+  
+  

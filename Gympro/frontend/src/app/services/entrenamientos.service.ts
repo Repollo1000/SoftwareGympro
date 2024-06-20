@@ -1,37 +1,35 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, tap } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntrenamientosService {
-  
-  private apiUrl = 'http://localhost:3000/api'; // Cambiar a la URL correcta del backend
-  
+  private apiUrl = 'http://localhost:3000/api'; // URL correcta del backend
+
   constructor(private http: HttpClient) { }
-  
-  // Método para obtener los entrenamientos para clientes (solo lectura)
-  getEntrenamientosCliente(): Observable<any[]> {
+
+  // Método para obtener los entrenamientos
+  getEntrenamientos(): Observable<any[]> {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('No se ha encontrado token de autenticación en el localStorage.');
+    }
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + localStorage.getItem('token') // Obtener el token JWT almacenado en localStorage
+      'Authorization': 'Bearer ' + token
     });
-    
+
     return this.http.get<any[]>(`${this.apiUrl}/entrenamientos`, { headers }).pipe(
       tap(data => console.log('Datos de entrenamientos recibidos:', data)),
-      catchError((error: any) => {
-        console.error('Error al obtener entrenamientos:', error);
-        throw error;
-      })
+      catchError(this.handleError)
     );
   }
-  
-  // Método para obtener los entrenamientos editables para profesionales (lectura y escritura)
-  getEntrenamientosProfesional(): Observable<any[]> {
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + localStorage.getItem('token') // Obtener el token JWT almacenado en localStorage
-    });
-    
-    return this.http.get<any[]>(`${this.apiUrl}/entrenamientos/editables`, { headers });
+
+  // Manejo de errores centralizado
+  private handleError(error: any) {
+    console.error('Error en la solicitud:', error);
+    return throwError(error); // Se reenvía el error para que lo maneje el componente que lo llama
   }
 }

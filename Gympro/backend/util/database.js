@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise'); // Importa mysql2 con soporte para promesas
 const config = require('../config/config.json');
 
 const pool = mysql.createPool({
@@ -8,4 +8,4 @@ const pool = mysql.createPool({
   password: config.password,
 });
 
-module.exports = pool.promise();
+module.exports = pool;

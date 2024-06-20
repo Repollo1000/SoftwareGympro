@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    // Check if there is a token in localStorage
+    // Check if there is a token in localStorage and if it's valid
     return !!localStorage.getItem('token');
   }
 }

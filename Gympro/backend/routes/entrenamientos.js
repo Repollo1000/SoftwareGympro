@@ -1,10 +1,8 @@
-// routes/entrenamientos.js
 const express = require('express');
+const authMiddleware = require('../util/authMiddleware');
 const authController = require('../controllers/auth');
 const router = express.Router();
 
-// Rutas para obtener entrenamientos
-router.get('/entrenamientos', authController.getEntrenamientosCliente);
-router.get('/entrenamientos/editables', authController.getEntrenamientosProfesional);
+router.get('/entrenamientos', authMiddleware, authController.getEntrenamientosCliente);
 
 module.exports = router;

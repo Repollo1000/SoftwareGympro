@@ -1,40 +1,32 @@
-// entrenamiento.page.ts
 import { Component, OnInit } from '@angular/core';
 import { EntrenamientosService } from '../../services/entrenamientos.service';
 
 @Component({
-  selector: 'app-entrenamientos',
+  selector: 'app-entrenamiento',
   templateUrl: './entrenamiento.page.html',
   styleUrls: ['./entrenamiento.page.scss'],
 })
 export class EntrenamientoPage implements OnInit {
+  entrenamientos: any[] = [];
 
-  entrenamientos: any[] = []; // Variable para almacenar los entrenamientos
-
-  constructor(private entrenamientosService: EntrenamientosService) { }
+  constructor(private entrenamientosService: EntrenamientosService) {}
 
   ngOnInit() {
-    this.obtenerEntrenamientos(); // Llama al método para obtener los entrenamientos al inicializar el componente
+    this.obtenerEntrenamientos();
   }
 
   obtenerEntrenamientos() {
-    this.entrenamientosService.getEntrenamientosCliente().subscribe(
+    this.entrenamientosService.getEntrenamientos().subscribe(
       (data: any[]) => {
-        console.log('Entrenamientos recibidos:', data);
-        // Aquí puedes transformar los datos si es necesario
-        this.entrenamientos = data.map(entrenamiento => ({
-          tipo: entrenamiento.tipo,
-          descripcion: entrenamiento.descripcion
-        }));
+        if (data && Array.isArray(data)) {
+          this.entrenamientos = data;
+        } else {
+          console.error('Los datos recibidos no están en el formato de array esperado:', data);
+        }
       },
       (error: any) => {
-        console.error('Error al obtener los entrenamientos:', error);
+        console.error('Error al obtener entrenamientos:', error);
       }
     );
   }
-
-  imprimirEntrenamientos() {
-    console.log('Entrenamientos actuales:', this.entrenamientos);
-  }
-
 }
