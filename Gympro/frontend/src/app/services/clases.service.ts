@@ -6,6 +6,7 @@ import { Observable, catchError, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class ClasesService {
+  [x: string]: any;
 
   private apiUrl = 'http://localhost:3000/api'; // Ajusta la URL según tu configuración
 
@@ -23,5 +24,9 @@ export class ClasesService {
         throw error;
       })
     );
+  }
+
+  crearClase(claseData: any) {
+    return this.http.post('http://localhost:3000/api/clases', claseData);
   }
 }

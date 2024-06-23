@@ -70,7 +70,13 @@ const routes: Routes = [
     path: 'gestion-membresia',
     loadChildren: () => import('./paginas/gestion-membresia/gestion-membresia.module').then(m => m.GestionMembresiaPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'create-clase',
+    loadChildren: () => import('./paginas/create-clase/create-clase.module').then( m => m.CreateClasePageModule),
+    canActivate: [AuthGuard]
   }
+
 ];
 
 @NgModule({

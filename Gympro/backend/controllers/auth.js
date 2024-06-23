@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const db = require('../util/database'); // Importa desde database.js
+const util = require('util');
+const query = util.promisify(db.query).bind(db);
 
 // Controlador para obtener entrenamientos para clientes (solo lectura)
 // Controlador para obtener entrenamientos para clientes (solo lectura)
@@ -111,5 +113,16 @@ exports.getCorporal = async (req, res) => {
   } catch (error) {
     console.error('Error executing query:', error);
     res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+exports.crearClase = async (req, res) => {
+  const { tipo, descripcion, fecha, hora } = req.body;
+  try {
+    await query('INSERT INTO clases (tipo, descripcion, fecha, hora) VALUES (?, ?, ?, ?)', [tipo, descripcion, fecha, hora]);
+    res.status(201).json({ message: 'Clase creada exitosamente' });
+  } catch (error) {
+    console.error('Error al crear la clase:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
   }
 };
