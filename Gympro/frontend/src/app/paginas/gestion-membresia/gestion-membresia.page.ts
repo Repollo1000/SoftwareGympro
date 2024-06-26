@@ -19,6 +19,7 @@ export class GestionMembresiaPage implements OnInit {
   ngOnInit() { }
 
   async cancelarMembresia() {
+    console.log('Función cancelarMembresia() llamada');
     const alert = await this.alertController.create({
       header: 'Confirmación',
       message: '¿Estás seguro de que deseas cancelar tu plan y eliminar tu cuenta?',
@@ -38,7 +39,7 @@ export class GestionMembresiaPage implements OnInit {
               response => {
                 console.log('Cuenta eliminada:', response);
                 // Redirigir a la página de inicio de sesión después de eliminar la cuenta
-                this.router.navigate(['/login']);
+                this.router.navigate(['/gympro']);
               },
               error => {
                 console.error('Error al eliminar la cuenta:', error);
@@ -48,7 +49,7 @@ export class GestionMembresiaPage implements OnInit {
         }
       ]
     });
-
+  
     await alert.present();
   }
 }
