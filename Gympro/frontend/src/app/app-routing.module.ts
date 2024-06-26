@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard'; // Adjust the path as needed
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {
-    path: 'gympro',
-    loadChildren: () => import('./paginas/gympro/gympro.module').then(m => m.GymproPageModule),
-    
-  },
   {
     path: '',
     redirectTo: 'gympro',
     pathMatch: 'full'
+  },
+  {
+    path: 'gympro',
+    loadChildren: () => import('./paginas/gympro/gympro.module').then(m => m.GymproPageModule),
   },
   {
     path: 'registro',
@@ -73,22 +72,21 @@ const routes: Routes = [
   },
   {
     path: 'create-clase',
-    loadChildren: () => import('./paginas/create-clase/create-clase.module').then( m => m.CreateClasePageModule),
+    loadChildren: () => import('./paginas/create-clase/create-clase.module').then(m => m.CreateClasePageModule),
     canActivate: [AuthGuard]
-  },  {
+  },
+  {
     path: 'evaluacion-corporal',
-    loadChildren: () => import('./paginas/evaluacion-corporal/evaluacion-corporal.module').then( m => m.EvaluacionCorporalPageModule)
+    loadChildren: () => import('./paginas/evaluacion-corporal/evaluacion-corporal.module').then(m => m.EvaluacionCorporalPageModule)
   },
   {
     path: 'subir-servicios',
-    loadChildren: () => import('./paginas/subir-servicios/subir-servicios.module').then( m => m.SubirServiciosPageModule)
+    loadChildren: () => import('./paginas/subir-servicios/subir-servicios.module').then(m => m.SubirServiciosPageModule)
   },
   {
     path: 'subir-maquinas',
-    loadChildren: () => import('./paginas/subir-maquinas/subir-maquinas.module').then( m => m.SubirMaquinasPageModule)
+    loadChildren: () => import('./paginas/subir-maquinas/subir-maquinas.module').then(m => m.SubirMaquinasPageModule)
   }
-
-
 ];
 
 @NgModule({

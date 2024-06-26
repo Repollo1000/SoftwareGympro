@@ -25,8 +25,11 @@ router.post(
   ],
   authController.signup
 );
+
 router.get('/profile', isAuth, authController.getProfile);
 
 router.post('/login', authController.login);
+
+router.delete('/delete', isAuth, authController.deleteAccount);
 
 module.exports = router;

@@ -11,7 +11,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-  userProfile: any = {};
+  userProfile: any = {}; // Definir userProfile como objeto vacío inicialmente
 
   constructor(
     private router: Router,
@@ -21,15 +21,16 @@ export class PerfilPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loadUserProfile();
+    this.loadUserProfile(); // Cargar el perfil del usuario al inicializar el componente
   }
 
   loadUserProfile() {
     this.userService.getProfile().subscribe(
-      (profile) => {
-        this.userProfile = profile;
+      (profile: any) => {
+        console.log('Profile loaded:', profile); // Verificar datos del perfil cargados
+        this.userProfile = profile[0]; // Asignar el primer elemento del arreglo (debería ser solo uno)
       },
-      (error) => {
+      (error: any) => {
         console.error('Error loading profile:', error);
       }
     );

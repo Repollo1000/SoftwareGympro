@@ -7,10 +7,11 @@ module.exports = (req, res, next) => {
     error.statusCode = 401;
     throw error;
   }
-  const token = authHeader.split(' ')[1]; // Authorization: Bearer <token>
+  const token = authHeader.split(' ')[1];
   let decodedToken;
   try {
-    decodedToken = jwt.verify(token, 'secretfortoken'); // Verificar el token
+    decodedToken = jwt.verify(token, 'secretfortoken');
+    console.log('Decoded JWT:', decodedToken); // Verificar el token decodificado
   } catch (err) {
     err.statusCode = 500;
     throw err;
@@ -20,6 +21,6 @@ module.exports = (req, res, next) => {
     error.statusCode = 401;
     throw error;
   }
-  req.userId = decodedToken.userId; // Asignar userId al request para usarlo en los controladores
+  req.userId = decodedToken.userId;
   next();
 };

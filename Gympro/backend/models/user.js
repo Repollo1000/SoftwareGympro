@@ -17,4 +17,8 @@ module.exports = class User {
       [user.name, user.email, user.password, user.role]
     );
   }
+
+  static findById(id) {
+    return db.execute('SELECT * FROM users WHERE id = ?', [id]);
+  }
 };

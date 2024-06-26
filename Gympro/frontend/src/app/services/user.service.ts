@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -25,6 +26,14 @@ export class UserService {
   }
   getProfile(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/profile`, {
+      headers: {
+        Authorization: `Bearer ${this.authService.getToken()}`
+      }
+    });
+  }
+
+  deleteAccount(): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete`, {
       headers: {
         Authorization: `Bearer ${this.authService.getToken()}`
       }
