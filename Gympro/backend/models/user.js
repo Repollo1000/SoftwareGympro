@@ -1,10 +1,11 @@
 const db = require('../util/database');
 
 module.exports = class User {
-  constructor(name, email, password) {
+  constructor(name, email, password, rol = 'Cliente') {
     this.name = name;
     this.email = email;
     this.password = password;
+    this.rol = rol; // Nuevo campo de rol
   }
 
   static find(email) {
@@ -13,8 +14,8 @@ module.exports = class User {
 
   static save(user) {
     return db.execute(
-      'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
-      [user.name, user.email, user.password]
+      'INSERT INTO users (name, email, password, rol) VALUES (?, ?, ?, ?)',
+      [user.name, user.email, user.password, user.rol]
     );
   }
 };

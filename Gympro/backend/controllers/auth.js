@@ -27,6 +27,8 @@ exports.getEntrenamientosCliente = async (req, res, next) => {
 
 
 // Controlador de registro (signup)
+
+
 exports.signup = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() });
@@ -37,7 +39,7 @@ exports.signup = async (req, res, next) => {
 
   try {
     const hashedPassword = await bcrypt.hash(password, 12);
-    const userDetails = { name, email, password: hashedPassword };
+    const userDetails = { name, email, password: hashedPassword, rol: 'Cliente' }; // Agrega rol por defecto
     const result = await User.save(userDetails);
 
     res.status(201).json({ message: 'User registered!' });
