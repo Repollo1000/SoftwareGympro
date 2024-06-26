@@ -72,12 +72,13 @@ exports.login = async (req, res, next) => {
       {
         email: storedUser.email,
         userId: storedUser.id,
+        role: storedUser.role,
       },
       'secretfortoken',
       { expiresIn: '1h' }
     );
 
-    res.status(200).json({ token, userId: storedUser.id });
+    res.status(200).json({ token, userId: storedUser.id , rol: storedUser.role});
   } catch (err) {
     if (!err.statusCode) err.statusCode = 500;
     next(err);
@@ -144,6 +145,22 @@ exports.guardarMaquinas = async (req, res) => {
   } catch (error) {
     console.error('Error al guardar la máquina:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
+  }
+};
+exports.getProfile = async (req, res, next) => {
+  try {
+    const userId = req.userId; // Asume que el middleware de autenticación establece req.userId
+    const user = await User.findById(userId); // Método para obtener el usuario por ID
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+    res.status(200).json({
+      name: user.name,
+      email: user.email,
+      role: user.role
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Error al obtener el perfil del usuario' });
   }
 };
 

@@ -1,21 +1,35 @@
+// auth.service.ts
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private apiUrl = 'http://localhost:3000/auth';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
+
+  login(credentials: { email: string; password: string }): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/login`, credentials).pipe(
+      tap(response => {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('role', response.rol);
+      })
+    );
+  }
 
   logout() {
-    // Clear user data, tokens, etc.
     localStorage.clear();
-    // Additional logout logic here if needed
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 
   isLoggedIn(): boolean {
-    // Check if there is a token in localStorage and if it's valid
     return !!localStorage.getItem('token');
   }
 }

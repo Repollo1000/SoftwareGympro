@@ -1,6 +1,8 @@
+// perfil.page.ts
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service'; // Ajusta la ruta según sea necesario
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -9,14 +11,29 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
+  userProfile: any = {};
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private authService: AuthService,
-    private alertController: AlertController // Inyecta el AlertController
-  ) { }
+    private userService: UserService,
+    private alertController: AlertController
+  ) {}
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.loadUserProfile();
+  }
+
+  loadUserProfile() {
+    this.userService.getProfile().subscribe(
+      (profile) => {
+        this.userProfile = profile;
+      },
+      (error) => {
+        console.error('Error loading profile:', error);
+      }
+    );
+  }
 
   async confirmLogout() {
     const alert = await this.alertController.create({
@@ -43,7 +60,7 @@ export class PerfilPage implements OnInit {
   }
 
   logout() {
-    this.authService.logout(); // Realiza la operación de cierre de sesión
-    this.router.navigate(['/gympro']); // Redirige a la página de inicio de sesión
+    this.authService.logout();
+    this.router.navigate(['/gympro']);
   }
 }

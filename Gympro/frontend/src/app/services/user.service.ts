@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   private apiUrl = 'http://localhost:3000/auth';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   signup(user: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/signup`, user);
@@ -21,6 +22,13 @@ export class UserService {
         localStorage.setItem('token', response.token);
       })
     );
+  }
+  getProfile(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/profile`, {
+      headers: {
+        Authorization: `Bearer ${this.authService.getToken()}`
+      }
+    });
   }
 }
 function tap(arg0: (response: { token: string; }) => void): import("rxjs").OperatorFunction<Object, any> {
