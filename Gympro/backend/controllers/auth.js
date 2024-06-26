@@ -37,7 +37,7 @@ exports.signup = async (req, res, next) => {
 
   try {
     const hashedPassword = await bcrypt.hash(password, 12);
-    const userDetails = { name, email, password: hashedPassword };
+    const userDetails = { name, email, password: hashedPassword , role : 'Cliente'};
     const result = await User.save(userDetails);
 
     res.status(201).json({ message: 'User registered!' });
