@@ -16,7 +16,7 @@ exports.getEntrenamientosCliente = async (req, res, next) => {
       return res.status(401).json({ error: 'Usuario no autenticado' });
     }
     
-    const [rows] = await db.execute('SELECT tipo, descripcion FROM training WHERE profesional_id = ?', [userId]);
+    const [rows] = await db.execute('SELECT tipo, descripcion FROM training WHERE idUser = ?', [userId]);
     res.json(rows);
   } catch (error) {
     console.error('Error al obtener los entrenamientos para clientes:', error);

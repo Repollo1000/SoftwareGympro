@@ -1,47 +1,36 @@
-
-
 <ion-content [fullscreen]="true">
 
   <div class="info">
-
     <img src="assets\SS.png" alt="">
     <h1>Inicio</h1>
-    <h2>Recientes</h2>
+    <h2>Acceso directo</h2>
     <p>Descubre lo último en tu gympro</p>
-
   </div>
 
-
-
-
-
-
-   
   <ion-card-content>
 
     <ion-list>
       
-      <ion-item>
-        
-        <ion-label>Rutina de piernas</ion-label>
+      <ion-item button routerLink="/entrenamiento">
+        <ion-label>Entrenamiento personalizado</ion-label>
       </ion-item>
       
-      <ion-item>
-        <ion-label>Horarios actualizados</ion-label>
+      <ion-item button routerLink="/clases">
+        <ion-label>Clases</ion-label>
       </ion-item>
 
-      <ion-item>
-        <ion-label>Estado de membresía</ion-label>
+      <ion-item button routerLink="/gestion-membresia">
+        <ion-label>Gestionar membresia</ion-label>
       </ion-item>
 
-      <ion-item lines="none">
-        <ion-label>Datos corporales</ion-label>
+      <ion-item button lines="none" routerLink="/corporal">
+        <ion-label>Evaluación corporal</ion-label>
       </ion-item>
 
     </ion-list>
 
   </ion-card-content>
+
   <app-footer></app-footer>
+
 </ion-content>
-
-

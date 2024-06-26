@@ -77,19 +77,23 @@ const routes: Routes = [
   },
   {
     path: 'evaluacion-corporal',
-    loadChildren: () => import('./paginas/evaluacion-corporal/evaluacion-corporal.module').then(m => m.EvaluacionCorporalPageModule)
+    loadChildren: () => import('./paginas/evaluacion-corporal/evaluacion-corporal.module').then(m => m.EvaluacionCorporalPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'subir-servicios',
-    loadChildren: () => import('./paginas/subir-servicios/subir-servicios.module').then(m => m.SubirServiciosPageModule)
+    loadChildren: () => import('./paginas/subir-servicios/subir-servicios.module').then(m => m.SubirServiciosPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'subir-maquinas',
-    loadChildren: () => import('./paginas/subir-maquinas/subir-maquinas.module').then(m => m.SubirMaquinasPageModule)
+    loadChildren: () => import('./paginas/subir-maquinas/subir-maquinas.module').then(m => m.SubirMaquinasPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'subir-entrenamiento',
-    loadChildren: () => import('./paginas/subir-entrenamiento/subir-entrenamiento.module').then( m => m.SubirEntrenamientoPageModule)
+    loadChildren: () => import('./paginas/subir-entrenamiento/subir-entrenamiento.module').then( m => m.SubirEntrenamientoPageModule),
+    canActivate: [AuthGuard]
   }
 
 ];

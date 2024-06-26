@@ -1,6 +1,7 @@
 <div class="container">
   <h2>Subir Entrenamiento</h2>
-  <form [formGroup]="entrenamientoForm" (ngSubmit)="onSubmit()">
+  
+  <form [formGroup]="entrenamientoForm" (ngSubmit)="onSubmit()" class="mt-4">
     <div class="form-group">
       <label for="tipo">Tipo de Ejercicio</label>
       <input
@@ -39,6 +40,9 @@
         <small class="text-danger">El ID de usuario es inválido o requerido.</small>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="entrenamientoForm.invalid">Guardar</button>
+    
+    <ion-button type="submit" class="btn btn-primary" [disabled]="entrenamientoForm.invalid" expand="full" routerLink="/subir-servicios">Guardar</ion-button>
+    
+    <ion-button expand="full" routerLink="/subir-servicios">Volver</ion-button>
   </form>
 </div>

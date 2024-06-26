@@ -1,27 +1,24 @@
-
-.info{
-
+.info {
     margin-top: 20px;
     margin-left: 20px;
+  }
 
-}
-img{
+  img {
     margin-top: 50px;
     background-color: rgb(161, 160, 160);
     border-radius: 200px;
     padding: 10px;
+  }
 
-}
-
-ion-list{
+  ion-list {
     --background: #FF4975;
     border-radius: 25px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     margin-left: 10px;
     margin-right: 10px;
-}
-    
-ion-item {
+  }
+
+  ion-item {
     --background: #FF4975;
     font-family: 'Roboto Mono';
     font-style: normal;
@@ -30,12 +27,8 @@ ion-item {
     line-height: 24px;
     color: aliceblue;
     padding: 0.2px;
-    
+  }
 
-}
-ion-label{
-    
+  ion-label {
     padding: 10px;
-}
-
-
+  }
