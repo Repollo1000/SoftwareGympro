@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Salas de maquinas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="maquinasForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Fecha y Hora</ion-label>
+      <ion-datetime formControlName="fechaHora" displayFormat="YYYY-MM-DD HH:mm" pickerFormat="YYYY-MM-DDTHH:mm" placeholder="Seleccionar Fecha y Hora"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sala</ion-label>
+      <ion-input formControlName="sala" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea formControlName="descripcion"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!maquinasForm.valid" routerLink="/maquinas">Guardar Máquina</ion-button>
+
+  </form>
+</ion-content>

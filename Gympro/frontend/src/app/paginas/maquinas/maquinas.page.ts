@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MaquinasService } from '../../services/maquinas.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-maquinas',
@@ -8,6 +9,8 @@ import { MaquinasService } from '../../services/maquinas.service';
 })
 export class MaquinasPage implements OnInit {
   maquinas: any[] = [];
+  http: any;
+  apiUrl: any;
 
   constructor(private maquinasService: MaquinasService) {}
 
@@ -29,4 +32,5 @@ export class MaquinasPage implements OnInit {
       }
     );
   }
+  
 }

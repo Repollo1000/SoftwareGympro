@@ -24,4 +24,24 @@ export class CorporalService {
       })
     );
   }
+  /*guardarEvaluacion(claseData: any) {
+    return this.http.post('http://localhost:3000/api', claseData);
+  }
+    */
+
+  guardarEvaluacion(evaluacionData: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+
+    return this.http.post(`${this.apiUrl}/evaluacion-corporal`, evaluacionData, { headers }).pipe(
+      tap((response: any) => console.log('Evaluación guardada exitosamente', response)),
+      catchError((error: any) => {
+        console.error('Error al guardar la evaluación', error);
+        throw error;
+      })
+    );
+  }
 }
+  
+

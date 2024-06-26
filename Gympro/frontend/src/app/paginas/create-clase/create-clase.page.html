@@ -17,15 +17,11 @@
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Fecha</ion-label>
-      <ion-datetime formControlName="fecha" displayFormat="YYYY-MM-DD" placeholder="Seleccionar Fecha"></ion-datetime>
+      <ion-label position="floating">Fecha y Hora</ion-label>
+      <ion-datetime formControlName="fechaHora" displayFormat="YYYY-MM-DD HH:mm" pickerFormat="YYYY-MM-DDTHH:mm" placeholder="Seleccionar Fecha y Hora"></ion-datetime>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Hora</ion-label>
-      <ion-datetime formControlName="hora" displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Seleccionar Hora"></ion-datetime>
-    </ion-item>
-
-    <ion-button expand="full" type="submit" [disabled]="!claseForm.valid">Crear Clase</ion-button>
+    <!-- Utilizamos el atributo routerLink para navegar a la página de clases -->
+    <ion-button expand="full" type="submit" [disabled]="!claseForm.valid" routerLink="/clases">Crear Clase</ion-button>
   </form>
 </ion-content>

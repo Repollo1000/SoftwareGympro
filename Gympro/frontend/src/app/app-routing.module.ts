@@ -75,7 +75,19 @@ const routes: Routes = [
     path: 'create-clase',
     loadChildren: () => import('./paginas/create-clase/create-clase.module').then( m => m.CreateClasePageModule),
     canActivate: [AuthGuard]
+  },  {
+    path: 'evaluacion-corporal',
+    loadChildren: () => import('./paginas/evaluacion-corporal/evaluacion-corporal.module').then( m => m.EvaluacionCorporalPageModule)
+  },
+  {
+    path: 'subir-servicios',
+    loadChildren: () => import('./paginas/subir-servicios/subir-servicios.module').then( m => m.SubirServiciosPageModule)
+  },
+  {
+    path: 'subir-maquinas',
+    loadChildren: () => import('./paginas/subir-maquinas/subir-maquinas.module').then( m => m.SubirMaquinasPageModule)
   }
+
 
 ];
 

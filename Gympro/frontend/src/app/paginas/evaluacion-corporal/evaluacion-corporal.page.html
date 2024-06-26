@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Evaluación Corporal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="evaluacionForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Fecha y Hora</ion-label>
+      <ion-datetime formControlName="fechaHora" displayFormat="YYYY-MM-DD HH:mm" pickerFormat="YYYY-MM-DDTHH:mm" placeholder="Seleccionar Fecha y Hora"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">IMC</ion-label>
+      <ion-input formControlName="imc" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Observaciones</ion-label>
+      <ion-textarea formControlName="observaciones"></ion-textarea>
+    </ion-item>
+    
+
+    <ion-button expand="full" type="submit" [disabled]="!evaluacionForm.valid"routerLink="/corporal">Guardar Evaluación</ion-button>
+  </form>
+</ion-content>

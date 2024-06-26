@@ -26,9 +26,13 @@ export class MaquinasService {
       catchError(this.handleError)
     );
   }
+  guardarMaquinas(maquinaData: any) {
+    return this.http.post(`${this.apiUrl}/maquinas`, maquinaData);
+  }
 
   private handleError(error: any) {
     console.error('Error en la solicitud:', error);
     return throwError(error);
   }
+
 }
