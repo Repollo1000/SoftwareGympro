@@ -5,7 +5,7 @@ const db = require('../util/database');
 exports.getEntrenamientosCliente = async (req, res, next) => {
     try {
       const userId = req.userId; // Obtener el userId del token JWT decodificado
-      const [rows] = await db.execute('SELECT tipo, descripcion FROM training WHERE userId = ?', [userId]);
+      const [rows] = await db.execute('SELECT tipo, descripcion FROM training WHERE idUser = ?', [userId]);
       res.json(rows);
     } catch (error) {
       console.error('Error al obtener los entrenamientos para clientes:', error);

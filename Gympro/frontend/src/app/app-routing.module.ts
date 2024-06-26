@@ -86,7 +86,12 @@ const routes: Routes = [
   {
     path: 'subir-maquinas',
     loadChildren: () => import('./paginas/subir-maquinas/subir-maquinas.module').then(m => m.SubirMaquinasPageModule)
+  },
+  {
+    path: 'subir-entrenamiento',
+    loadChildren: () => import('./paginas/subir-entrenamiento/subir-entrenamiento.module').then( m => m.SubirEntrenamientoPageModule)
   }
+
 ];
 
 @NgModule({

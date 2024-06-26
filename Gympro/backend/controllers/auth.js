@@ -162,6 +162,34 @@ exports.getProfile = (req, res, next) => {
     });
 };
 
+exports.guardarEntrenamiento = async (req, res) => {
+  try {
+    const { tipo, descripcion, idUser } = req.body;
+
+    // Validar que todos los campos estén presentes
+    if (!tipo || !descripcion || !idUser) {
+      return res.status(400).json({ message: 'Todos los campos son obligatorios' });
+    }
+
+    // Consulta SQL para insertar el nuevo entrenamiento
+    const query = 'INSERT INTO training (tipo, descripcion, idUser) VALUES (?, ?, ?)';
+    const values = [tipo, descripcion, idUser];
+
+    // Ejecutar la consulta
+    db.query(query, values, (error, results) => {
+      if (error) {
+        console.error('Error al guardar el entrenamiento:', error);
+        return res.status(500).json({ message: 'Error al guardar el entrenamiento' });
+      }
+
+      // Enviar la respuesta con el entrenamiento creado
+      res.status(201).json({ id: results.insertId, tipo, descripcion, idUser });
+    });
+  } catch (error) {
+    console.error('Error al guardar el entrenamiento:', error);
+    res.status(500).json({ message: 'Error al guardar el entrenamiento' });
+  }
+};
 
 exports.deleteAccount = async (req, res, next) => {
   const userId = req.userId;

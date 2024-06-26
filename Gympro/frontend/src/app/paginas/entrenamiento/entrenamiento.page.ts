@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EntrenamientosService } from '../../services/entrenamientos.service';
+import { EntrenamientosService } from '../../services/entrenamientos.service'; // Ajusta la ruta según sea necesario
 
 @Component({
   selector: 'app-entrenamiento',
