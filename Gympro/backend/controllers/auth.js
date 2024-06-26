@@ -27,8 +27,6 @@ exports.getEntrenamientosCliente = async (req, res, next) => {
 
 
 // Controlador de registro (signup)
-
-
 exports.signup = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() });
@@ -39,7 +37,7 @@ exports.signup = async (req, res, next) => {
 
   try {
     const hashedPassword = await bcrypt.hash(password, 12);
-    const userDetails = { name, email, password: hashedPassword, rol: 'Cliente' }; // Agrega rol por defecto
+    const userDetails = { name, email, password: hashedPassword };
     const result = await User.save(userDetails);
 
     res.status(201).json({ message: 'User registered!' });
@@ -128,3 +126,25 @@ exports.crearClase = async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 };
+exports.guardarEvaluacion = async (req, res) => {
+  const { fecha, hora, imc, observaciones, created_at } = req.body;
+  try {
+    await query('INSERT INTO evaluacion_corporal (fecha, hora, imc, observaciones, created_at) VALUES (?, ?, ?, ?, ?)', [fecha, hora, imc, observaciones, created_at]);
+    res.status(201).json({ message: 'Evaluación guardada exitosamente' });
+  } catch (error) {
+    console.error('Error al guardar la evaluación:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+};
+exports.guardarMaquinas = async (req, res) => {
+  const { sala, descripcion, fecha, hora } = req.body;
+  try {
+    await query('INSERT INTO maquinas (sala, descripcion, fecha, hora) VALUES (?, ?, ?, ?)', [sala, descripcion, fecha, hora]);
+    res.status(201).json({ message: 'Máquina guardada exitosamente' });
+  } catch (error) {
+    console.error('Error al guardar la máquina:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+};
+
+

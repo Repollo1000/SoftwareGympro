@@ -5,4 +5,5 @@ const router = express.Router();
 
 router.get('/entrenamientos', authMiddleware, authController.getEntrenamientosCliente);
 
+
 module.exports = router;
