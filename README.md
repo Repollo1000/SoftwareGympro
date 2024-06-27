@@ -35,6 +35,6 @@ Nombre base de datos: gympro
 
 Estrucura de la base de datos 
 
-archivo para configurar completamente la base de datos esta en el zip de la entrega con el nombre gympro.sql
+archivo para configurar completamente la base de datos esta en el zip de la entrega, tanto como en este mismo repositorio con el nombre gympro.sql
 
 
