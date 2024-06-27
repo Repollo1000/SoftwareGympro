@@ -7,8 +7,6 @@ cd Gympro/frontend
 
 npm install
 
-npm install express body-parser
-
 ionic serve
 
 ------------------------
@@ -18,6 +16,8 @@ Para ejecutar backend
 cd Gympro/backend 
 
 npm install
+
+npm install express body-parser
 
 npm start
 
